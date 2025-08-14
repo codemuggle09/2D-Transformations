@@ -36,3 +36,9 @@ Point translatePoint(Point p, float tx, float ty) {
     p.y += ty;
     return p;
 }
+// Grows or shrinks a point relative to some center
+Point scalePoint(Point p, Point center, float sx, float sy) {
+    p.x = center.x + (p.x - center.x) * sx;
+    p.y = center.y + (p.y - center.y) * sy;
+    return p;
+}
