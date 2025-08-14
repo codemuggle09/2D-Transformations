@@ -30,3 +30,9 @@ Point rotatePoint(Point p, Point center, float angle) {
     p.y = ynew + center.y;
     return p;
 }
+// Just shift the point by tx, ty
+Point translatePoint(Point p, float tx, float ty) {
+    p.x += tx;
+    p.y += ty;
+    return p;
+}
