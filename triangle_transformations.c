@@ -50,3 +50,11 @@ Point shearPoint(Point p, float shx, float shy) {
     p.y = newY;
     return p;
 }
+// Flips point across X or Y axis
+Point reflectPoint(Point p, char axis) {
+    if (axis == 'x')
+        p.y = -p.y + 500; // Adjusted so it stays visible
+    if (axis == 'y')
+        p.x = -p.x + 500; // Adjusted so it stays visible
+    return p;
+}
