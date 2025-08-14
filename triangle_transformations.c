@@ -6,3 +6,27 @@
 typedef struct {
     float x, y;
 } Point;
+// Draws a triangle by connecting the 3 given points
+void drawTriangle(SDL_Renderer *renderer, Point a, Point b, Point c) {
+    SDL_RenderDrawLine(renderer, (int)a.x, (int)a.y, (int)b.x, (int)b.y);
+    SDL_RenderDrawLine(renderer, (int)b.x, (int)b.y, (int)c.x, (int)c.y);
+    SDL_RenderDrawLine(renderer, (int)c.x, (int)c.y, (int)a.x, (int)a.y);
+}
+
+// Rotates a point around a given center by the given angle
+Point rotatePoint(Point p, Point center, float angle) {
+    float s = sin(angle), c = cos(angle);
+
+    // Move point to origin (relative to center)
+    p.x -= center.x;
+    p.y -= center.y;
+
+    // Apply rotation math
+    float xnew = p.x * c - p.y * s;
+    float ynew = p.x * s + p.y * c;
+
+    // Move back to original position
+    p.x = xnew + center.x;
+    p.y = ynew + center.y;
+    return p;
+}
