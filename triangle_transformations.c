@@ -42,3 +42,11 @@ Point scalePoint(Point p, Point center, float sx, float sy) {
     p.y = center.y + (p.y - center.y) * sy;
     return p;
 }
+// Tilts the point horizontally or vertically
+Point shearPoint(Point p, float shx, float shy) {
+    float newX = p.x + shx * p.y;
+    float newY = p.y + shy * p.x;
+    p.x = newX;
+    p.y = newY;
+    return p;
+}
